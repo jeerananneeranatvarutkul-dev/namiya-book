@@ -1,0 +1,1063 @@
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+:root {
+  --bg-color: #FFFDF7;
+  --card-bg: #FFFFFF;
+  --text-color: #4A3F35;
+  --primary-pink: #FFB3BA;
+  --pastel-yellow: #FFFFBA;
+  --pastel-green: #E2F0CB;
+  --accent-peach: #FFDFBA;
+  --border-color: #E8DFD8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="%23FF9AA2"><path d="M12 0l3.09 9.51 9.91 0.23-7.98 5.86 3.01 9.53-8.03-5.78-8.03 5.78 3.01-9.53-7.98-5.86 9.91-0.23z"/></svg>'), auto;
+}
+
+body {
+  font-family: 'Mali', 'Zen Maru Gothic', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.7;
+  padding-bottom: 40px;
+}
+
+/* ==========================================
+   0. Marquee Banner (ปรับตัวอักษรเป็นสีเข้มให้อ่านชัดขึ้น)
+   ========================================== */
+.marquee-container {
+  background-color: #FFC0CB !important; /* พื้นหลังสีชมพูพาสเทล */
+  padding: 8px 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  font-size: 0.9rem;
+  font-weight: 700;
+  width: 100% !important;
+  position: relative !important;
+  z-index: 1002 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.marquee-text {
+  display: inline-block !important;
+  padding-left: 100%;
+  animation: marquee 20s linear infinite !important;
+  color: #5C2C35 !important; /* เปลี่ยนตัวอักษรเป็นสีชมพูอมน้ำตาลเข้ม อ่านชัดเจนมาก */
+}
+
+@keyframes marquee {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
+/* ==========================================
+   1. Navbar & Navigation
+   ========================================== */
+.top-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 25px;
+  background-color: #FFFFFF;
+  border-bottom: 2px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.nav-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-color);
+}
+
+.nav-title {
+  font-family: 'Sawarabi Mincho', serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #FF85A1;
+}
+
+.nav-dropdown {
+  display: none;
+  position: relative;
+}
+
+.dropdown-btn {
+  background-color: #F4EBE1;
+  color: var(--text-color);
+  border: 1.5px solid var(--border-color);
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-family: 'Mali', sans-serif;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FFFFFF;
+  min-width: 160px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.12);
+  border-radius: 12px;
+  border: 1.5px solid var(--border-color);
+  padding: 8px 0;
+  list-style: none;
+  z-index: 1001;
+  margin-top: 5px;
+}
+
+.nav-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content li a {
+  color: var(--text-color);
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.dropdown-content li a:hover {
+  background-color: #FFF2F4;
+  color: #FF85A1;
+}
+
+.nav-btn {
+  background-color: #A83232;
+  color: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-btn:hover {
+  background-color: #802222;
+}
+
+/* ==========================================
+   2. Hero Section (ปรับแต่งประโยคหลักสไตล์เว็บญี่ปุ่น)
+   ========================================== */
+.hero {
+  text-align: center;
+  padding: 35px 15px 25px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* ป้าย Badge ด้านบน */
+.badge {
+  background-color: #FFF3B0 !important;
+  color: #7A5200 !important;
+  font-weight: 700 !important;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1.5px solid #E6B800 !important;
+  display: inline-block;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+}
+
+/* กล่องครอบประโยคหลักสไตล์กระดาษญี่ปุ่น */
+.jp-hero-catchphrase {
+  position: relative;
+  background: #FFFDF9;
+  border: 2px solid #E8DFD8;
+  border-radius: 24px;
+  padding: 30px 45px;
+  margin-bottom: 25px;
+  box-shadow: 0 12px 30px rgba(74, 63, 53, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ลายเส้นมุมกล่องสไตล์กรอบญี่ปุ่น */
+.jp-hero-catchphrase::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px dashed #FFB3BA;
+  border-radius: 18px;
+  pointer-events: none;
+}
+
+/* ตัวหนังสือประโยคคำถามใหญ่ขึ้นและคมชัด */
+.title-question {
+  font-family: 'Sawarabi Mincho', 'Mali', serif;
+  font-size: 2.1rem; /* ขยายขนาดใหญ่ขึ้น */
+  font-weight: 700;
+  color: #382E25;
+  line-height: 1.5;
+  margin: 0;
+  z-index: 1;
+}
+
+/* แถบไฮไลท์ปากกาพาสเทลใต้ประโยคสำคัญ */
+.highlight-text {
+  background: linear-gradient(180deg, transparent 60%, #FFDFBA 60%);
+  padding: 0 6px;
+  display: inline-block;
+  color: #2C221E;
+}
+
+/* ตัวอักษรญี่ปุ่นแนวตั้งประดับซ้าย-ขวา */
+.jp-vertical-text {
+  writing-mode: vertical-rl;
+  font-family: 'Sawarabi Mincho', serif;
+  font-size: 0.85rem;
+  color: #B59B88;
+  letter-spacing: 3px;
+  opacity: 0.75;
+  user-select: none;
+}
+
+/* ป้ายชื่อเรื่องหนังสือ */
+.book-title-tag {
+  display: inline-block;
+  background-color: #F4EBE1;
+  color: #4A3F35;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 8px 22px;
+  border-radius: 14px;
+  border: 1.5px solid var(--border-color);
+  margin-bottom: 22px;
+  box-shadow: 0 4px 10px rgba(74, 63, 53, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.book-title-tag:hover {
+  transform: scale(1.03);
+  border-color: var(--primary-pink);
+}
+
+/* กระดาษคำโปรยด้านล่าง */
+.catchphrase-paper {
+  background-color: #FFFDF9;
+  border: 2px dashed #E5D8C5;
+  border-radius: 18px;
+  padding: 22px 28px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(74, 63, 53, 0.06);
+  max-width: 680px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.catchphrase-paper p {
+  font-style: italic;
+  font-size: 0.98rem;
+  color: #4A3F35;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.stamp-mark {
+  position: absolute;
+  top: -14px;
+  right: 25px;
+  background-color: #D9534F;
+  color: #FFFFFF !important;
+  font-size: 0.72rem;
+  font-weight: bold;
+  padding: 3px 10px;
+  border-radius: 8px;
+  border: 1.5px solid #FFF;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* รองรับการแสดงผลบนหน้าจอจอมือถือ */
+@media (max-width: 650px) {
+  .title-question {
+    font-size: 1.45rem;
+  }
+  .jp-vertical-text {
+    display: none; /* ซ่อนตัวอักษรแนวตั้งเมื่อเปิดในมือถือเพื่อไม่ให้เบียด */
+  }
+  .jp-hero-catchphrase {
+    padding: 20px;
+  }
+}
+
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 1.35rem;
+  text-align: center;
+  margin-bottom: 22px;
+  color: #382E25;
+}
+
+/* ตราประทับญี่ปุ่นมุมกล่อง (Hanko Stamp) */
+.hanko-stamp {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  width: 45px;
+  height: 45px;
+  background-color: #A83232;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sawarabi Mincho', serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(168, 50, 50, 0.3);
+  transform: rotate(15deg);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2;
+}
+
+.jp-hero-catchphrase:hover .hanko-stamp {
+  transform: rotate(0deg) scale(1.15);
+}
+
+/* ไอคอนซองจดหมายลอยดุ๊กดิ๊ก */
+.floating-mail {
+  position: absolute;
+  font-size: 1.5rem;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.mail-left {
+  top: -18px;
+  left: 20px;
+  animation: floatMailLeft 3s ease-in-out infinite;
+}
+
+.mail-right {
+  bottom: -15px;
+  right: 30px;
+  animation: floatMailRight 3.5s ease-in-out infinite;
+}
+
+/* Keyframes ซองจดหมายลอย */
+@keyframes floatMailLeft {
+  0%, 100% { transform: translateY(0) rotate(-10deg); }
+  50% { transform: translateY(-8px) rotate(5deg); }
+}
+
+@keyframes floatMailRight {
+  0%, 100% { transform: translateY(0) rotate(12deg); }
+  50% { transform: translateY(-10px) rotate(-5deg); }
+}
+/* ==========================================
+   3. Book Card Section (ข้อ 2: ทำไมจึงควรอ่าน)
+   ========================================== */
+.book-card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 35px;
+  display: flex;
+  gap: 35px;
+  box-shadow: 0 10px 25px rgba(74, 63, 53, 0.05);
+  border: 2px solid var(--border-color);
+  margin-bottom: 45px;
+  align-items: center;
+}
+
+.book-stage {
+  perspective: 1000px;
+  flex-shrink: 0;
+}
+
+.book-3d {
+  width: 180px;
+  border-radius: 8px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transform: rotateY(-12deg) rotateX(5deg);
+  box-shadow: -12px 12px 20px rgba(74, 63, 53, 0.2), 
+              -2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.book-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.book-3d:hover {
+  transform: rotateY(0deg) rotateX(0deg) translateY(-8px);
+  box-shadow: 0 15px 30px rgba(74, 63, 53, 0.25);
+}
+
+.sticker-tag {
+  background-color: var(--pastel-green);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 5px 14px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.note-paper {
+  background-color: #FFFDF7;
+  border-left: 4px solid var(--primary-pink);
+  padding: 15px 18px;
+  border-radius: 0 14px 14px 0;
+  margin-bottom: 15px;
+}
+
+.note-paper p {
+  font-size: 0.92rem;
+  color: #5A4E44;
+  margin-bottom: 10px;
+}
+
+.highlight-p {
+  font-weight: 600;
+  color: #382E25 !important;
+}
+
+.inner-quote {
+  font-style: italic;
+  font-weight: bold;
+  color: #A83232;
+  margin: 10px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary-pink);
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #F4EBE1;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ==========================================
+   4. Benefits Section (ข้อ 3: 3 ประโยชน์)
+   ========================================== */
+.reasons-section {
+  margin-bottom: 45px;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  padding: 10px 5px;
+}
+
+.reason-card {
+  background-color: #FFFDF9;
+  padding: 28px 20px 22px;
+  border-radius: 20px;
+  border: 2px dashed #E5D8C5;
+  box-shadow: 0 8px 18px rgba(74, 63, 53, 0.06);
+  position: relative;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-tilt-left { transform: rotate(-2deg); }
+.card-tilt-center { transform: rotate(1deg); }
+.card-tilt-right { transform: rotate(2deg); }
+
+.stamp-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-pink);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 3px 12px;
+  border-radius: 12px;
+  border: 1.5px solid #FFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.reason-icon {
+  font-size: 2.2rem;
+  margin: 10px 0 8px;
+}
+
+.reason-card h3 {
+  font-size: 1rem;
+  color: #382E25;
+  margin-bottom: 8px;
+}
+
+.reason-card p {
+  font-size: 0.85rem;
+  color: #6B5B4E;
+  line-height: 1.6;
+}
+
+.jp-decoration {
+  display: block;
+  margin-top: 12px;
+  font-family: 'Sawarabi Mincho', serif;
+  font-size: 0.75rem;
+  color: #C2A895;
+}
+
+.reason-card:hover {
+  transform: translateY(-8px) rotate(0deg) scale(1.02);
+  background-color: #FFFFFF;
+  border-style: solid;
+  border-color: var(--primary-pink);
+  box-shadow: 0 14px 28px rgba(255, 179, 186, 0.35);
+}
+
+/* ==========================================
+   5. ปรับดีไซน์ประเด็นน่าอ่าน (แถบกระดาษจดหมายแนวนอน)
+   ========================================== */
+.letter-reasons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.letter-reason-item {
+  background-color: #FFFDF9;
+  border: 1.5px solid #E5D8C5;
+  border-left: 5px solid var(--primary-pink);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 12px rgba(74, 63, 53, 0.04);
+  transition: all 0.3s ease;
+}
+
+.letter-number-badge {
+  font-family: 'Sawarabi Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--primary-pink);
+  background-color: #FFF2F4;
+  border: 1px dashed var(--primary-pink);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.letter-reason-body h3 {
+  font-size: 0.98rem;
+  color: #382E25;
+  margin-bottom: 4px;
+}
+
+.letter-reason-body p {
+  font-size: 0.85rem;
+  color: #6B5B4E;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.letter-reason-item:hover {
+  transform: translateX(6px);
+  background-color: #FFFFFF;
+  border-color: var(--primary-pink);
+  box-shadow: 0 6px 18px rgba(255, 179, 186, 0.25);
+}
+
+@media (max-width: 600px) {
+  .letter-reason-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* ==========================================
+   6. Envelope Section (ข้อ 4: สรุปคุณค่า)
+   ========================================== */
+.envelope-section {
+  text-align: center;
+  background-color: var(--accent-peach);
+  padding: 35px 20px;
+  border-radius: 24px;
+  border: 2px dashed #E5C3A6;
+  margin-bottom: 45px;
+}
+
+.section-desc {
+  font-size: 0.85rem;
+  color: #7A5B44;
+  margin-bottom: 25px;
+}
+
+.jp-envelope-wrapper {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+.jp-envelope {
+  width: 320px;
+  height: 180px;
+  background-color: #FFFDF7;
+  border: 2px solid var(--text-color);
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 90px solid #F4E4D4;
+  transform-origin: top;
+  transition: transform 0.4s ease;
+  z-index: 3;
+}
+
+.hanko-seal {
+  position: absolute;
+  top: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 38px;
+  background-color: #A83232;
+  color: #FFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sawarabi Mincho', serif;
+  font-size: 0.65rem;
+  font-weight: bold;
+  z-index: 4;
+  border: 2px solid #FFF;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: opacity 0.3s ease;
+}
+
+.envelope-letter {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 85%;
+  background-color: #FFFFFF;
+  border: 1.5px dashed var(--primary-pink);
+  border-radius: 8px;
+  padding: 15px;
+  z-index: 2;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.letter-content {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  text-align: left;
+}
+
+.letter-header {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--primary-pink);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.letter-content p {
+  font-size: 0.82rem;
+  color: #4A3F35;
+  line-height: 1.5;
+}
+
+.letter-footer {
+  font-size: 0.72rem;
+  display: block;
+  text-align: right;
+  margin-top: 8px;
+  color: #8C7A6B;
+}
+
+/* Click / Hover Open Animation */
+.jp-envelope.open .envelope-flap,
+.jp-envelope:hover .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.jp-envelope.open .hanko-seal,
+.jp-envelope:hover .hanko-seal {
+  opacity: 0;
+}
+
+.jp-envelope.open .envelope-letter,
+.jp-envelope:hover .envelope-letter {
+  transform: translateX(-50%) translateY(-50px);
+  z-index: 5;
+  height: 110%;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.jp-envelope.open .letter-content,
+.jp-envelope:hover .letter-content {
+  opacity: 1;
+}
+
+/* ==========================================
+   7. Character & Game Sections
+   ========================================== */
+.character-section {
+  margin-bottom: 45px;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  padding-top: 10px;
+}
+
+.polaroid-card {
+  background: #FFFFFF;
+  padding: 22px 18px 25px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-color);
+  box-shadow: 0 8px 20px rgba(74, 63, 53, 0.08);
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.washi-tape {
+  width: 60px;
+  height: 20px;
+  background-color: rgba(255, 179, 186, 0.6);
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  border: 1px dashed rgba(255,255,255,0.8);
+}
+
+.char-avatar-circle {
+  width: 65px;
+  height: 65px;
+  background-color: #FFFDF7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 5px auto 10px;
+  border: 2px solid var(--border-color);
+}
+
+.polaroid-card h3 {
+  font-size: 1rem;
+  color: #382E25;
+  margin-bottom: 4px;
+}
+
+.char-role-tag {
+  display: inline-block;
+  background-color: var(--pastel-yellow);
+  color: #7A6858;
+  font-size: 0.72rem;
+  font-weight: bold;
+  padding: 2px 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.polaroid-card p {
+  font-size: 0.85rem;
+  color: #6B5B4E;
+  line-height: 1.5;
+}
+
+.polaroid-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(74, 63, 53, 0.15);
+  border-color: var(--primary-pink);
+}
+
+.game-section {
+  background: var(--card-bg);
+  padding: 35px 20px;
+  border-radius: 24px;
+  border: 2px solid var(--border-color);
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.shrine-gate {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+.game-desc {
+  font-size: 0.88rem;
+  color: #6B5B4E;
+  margin-bottom: 25px;
+}
+
+.omikuji-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.omikuji-box {
+  width: 80px;
+  height: 120px;
+  background-color: #E29578;
+  border: 3px solid #382E25;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 0px #382E25;
+  transition: transform 0.1s ease;
+}
+
+.box-label {
+  background-color: #FFFDF7;
+  border: 1.5px solid #382E25;
+  padding: 4px 6px;
+  font-family: 'Sawarabi Mincho', serif;
+  font-size: 0.65rem;
+  font-weight: bold;
+  color: #382E25;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.box-hole {
+  width: 12px;
+  height: 12px;
+  background-color: #382E25;
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+}
+
+.shake-box {
+  animation: boxShake 0.5s ease infinite;
+}
+
+@keyframes boxShake {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-8deg) translateY(-5px); }
+  50% { transform: rotate(8deg) translateY(0); }
+  75% { transform: rotate(-5deg) translateY(-3px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+
+#omikuji-btn {
+  background-color: var(--primary-pink);
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
+  padding: 12px 30px;
+  font-size: 0.95rem;
+  font-family: 'Mali', sans-serif;
+  font-weight: bold;
+  border-radius: 30px;
+  box-shadow: 3px 3px 0px var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#omikuji-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--text-color);
+  background-color: #FF9AA2;
+}
+
+.result-box {
+  margin-top: 25px;
+  background-color: #FFFDF7;
+  padding: 20px;
+  border-radius: 18px;
+  border: 2px solid var(--text-color);
+  box-shadow: 4px 4px 0px var(--border-color);
+  animation: popIn 0.3s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.fortune-tag {
+  background-color: #A83232;
+  color: #FFF;
+  padding: 4px 16px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================
+   8. CIP & Footer
+   ========================================== */
+.cip-section {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 20px;
+  border: 2px solid var(--border-color);
+}
+
+.cip-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cip-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 8px;
+  font-size: 0.88rem;
+}
+
+.cip-row span:first-child {
+  font-weight: bold;
+  color: #7A6858;
+}
+
+.cip-row span:last-child {
+  color: var(--text-color);
+  text-align: right;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #A39385;
+  margin-top: 35px;
+}
+
+/* ==========================================
+   9. Media Queries
+   ========================================== */
+@media (max-width: 950px) {
+  .nav-links { display: none; }
+  .nav-dropdown { display: inline-block; }
+}
+
+@media (max-width: 650px) {
+  .book-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .tags { justify-content: center; }
+  .cip-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .cip-row span:last-child { text-align: left; }
+  .reason-card { transform: rotate(0deg) !important; }
+}
+
+@media (max-width: 480px) {
+  .nav-title { display: none; }
+  .title-question { font-size: 1.4rem; }
+  .jp-envelope { width: 280px; }
+  .envelope-flap {
+    border-left-width: 140px;
+    border-right-width: 140px;
+  }
+}
